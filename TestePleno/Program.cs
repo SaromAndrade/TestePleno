@@ -14,6 +14,7 @@ namespace TestePleno
         {
             var fare = new Fare();
             fare.Id = Guid.NewGuid();
+            fare.Data = new DateTime(2022, 1, 13);
 
             Console.WriteLine("Informe o valor da tarifa a ser cadastrada:");
             var fareValueInput = Console.ReadLine();
@@ -25,6 +26,20 @@ namespace TestePleno
 
             var fareController = new FareController();
             fareController.CreateFare(fare, operatorCodeInput);
+
+
+
+
+            var fare2 = new Fare();
+            fare2.Id = Guid.NewGuid();
+            fare2.Data = new DateTime(2022, 1, 13);
+
+
+            Console.WriteLine("Informe o valor da segunda tarifa a ser cadastrada:");
+            var fare2ValueInput = Console.ReadLine();
+            fare2.Value = decimal.Parse(fare2ValueInput);
+
+            fareController.CreateFare(fare2, operatorCodeInput);
 
             Console.WriteLine("Tarifa cadastrada com sucesso!");
             Console.Read();
